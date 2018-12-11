@@ -463,6 +463,17 @@
 
         get();
        
+
+
+
+        $('.calendar').pignoseCalendar({
+            apply: function(date, context) {
+                var $this = $(this);
+                var $element = context.element;
+                var $calendar = context.calendar;
+                console.log(date[0], date[1]);
+            }
+        });
     </script>
 </body>
 
