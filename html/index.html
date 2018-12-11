@@ -264,7 +264,7 @@
 
                                 </div>
 
-                                <div id="dwedewdwewe">이걸누르면 뜹니다.</div>
+                                <div id="datepickButton" class="pull-right"><i class="fa fa-calendar"></i></div>
                                
                             </div>
 
@@ -483,7 +483,7 @@
 
         get();
        
-        $('#dwedewdwewe').pignoseCalendar({modal:true,buttons:true,
+        $('#datepickButton').pignoseCalendar({modal:true,buttons:true,
             format:"YYYY-MM-DD",
             apply: function(date, context) {
             var $this = $(this);
@@ -496,7 +496,7 @@
             var yyyymmdd = yyyy+"-"+mm+"-"+dd;
             var yyyymmdd1 = yyyy+""+mm+""+dd;
                 getlist(altid,yyyymmdd1);
-                $("#dwedewdwewe").text(yyyymmdd);
+                $("#datepickButton").text(yyyymmdd);
             }
         });
         function lpad0(f){
