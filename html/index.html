@@ -37,6 +37,8 @@
 </head>
 
 <body class="fix-header">
+
+    <div class="calendar"></div>
     <!-- ============================================================== -->
     <!-- Preloader -->
     <!-- ============================================================== -->
@@ -222,10 +224,14 @@
                     <div class="col-md-12 col-lg-12 col-sm-12">
                         <div class="white-box">
                             <div class="col-md-3 col-sm-4 col-xs-6 pull-right">
-                                <div class="pull-right"><div class="calendar"></div>
+                                <div class="pull-right">
                                 </div>
                                 <button onclick="a18"></button>
                             </div>
+
+
+
+
                             <h3 class="box-title">Recent Data</h3>
                             <div class="table-responsive">
                                 <table class="table">
@@ -464,22 +470,20 @@
 
         get();
        
+        $('.calendar').pignoseCalendar({ modal: true, format: 'YYYY-MM-DD' });
 
-        $('.calendar').pignoseCalendar({modal:true});
-
-        
-
-        function a18(){
+        function a18() {
             $('.calendar').pignoseCalendar({
-            modal:true,
-            apply: function(date, context) {
-                var $this = $(this);
-                var $element = context.element;
-                var $calendar = context.calendar;
-                console.log(date[0], date[1]);
-            }
-        });
+                modal: true,
+                apply: function (date, context) {
+                    var $this = $(this);
+                    var $element = context.element;
+                    var $calendar = context.calendar;
+                    console.log(date[0], date[1]);
+                }
+            });
         }
+      
     </script>
 </body>
 
