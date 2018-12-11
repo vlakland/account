@@ -28,6 +28,43 @@
     <link href="css/colors/default.css" id="theme" rel="stylesheet">
     <!-- pignose calendar CSS-->
     <link href="../plugins/bower_components/pg-calendar/dist/css/pignose.calendar.css" rel="stylesheet">
+
+    
+<!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+    <script src="../plugins/bower_components/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- Menu Plugin JavaScript -->
+    <script src="../plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js"></script>
+    <!--slimscroll JavaScript -->
+    <script src="js/jquery.slimscroll.js"></script>
+    <!--Wave Effects -->
+    <script src="js/waves.js"></script>
+    <!--Counter js -->
+    <script src="../plugins/bower_components/waypoints/lib/jquery.waypoints.js"></script>
+    <script src="../plugins/bower_components/counterup/jquery.counterup.min.js"></script>
+    <!-- chartist chart -->
+    <script src="../plugins/bower_components/chartist-js/dist/chartist.min.js"></script>
+    <script src="../plugins/bower_components/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.min.js"></script>
+    <!-- Sparkline chart JavaScript -->
+    <script src="../plugins/bower_components/jquery-sparkline/jquery.sparkline.min.js"></script>
+   
+    <!-- Custom Theme JavaScript -->
+    <script src="js/custom.min.js"></script>
+    <script src="js/dashboard1.js"></script>
+    <script src="../plugins/bower_components/toast-master/js/jquery.toast.js"></script>
+
+
+
+    <!-- db 작동관련 기본 시작-->
+    <script src="http://crm.adand.co.kr/crm/js/common.js"></script>
+    <script src="http://crm.adand.co.kr/crm/js/func.js"></script>
+     <!-- Pignose Calendar JavaScript -->
+     <script src="../plugins/bower_components/pg-calendar/dist/js/pignose.calendar.full.min.js"></script>
+
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -37,8 +74,7 @@
 </head>
 
 <body class="fix-header">
-
-    <div class="calendar"></div>
+   
     <!-- ============================================================== -->
     <!-- Preloader -->
     <!-- ============================================================== -->
@@ -225,8 +261,11 @@
                         <div class="white-box">
                             <div class="col-md-3 col-sm-4 col-xs-6 pull-right">
                                 <div class="pull-right">
+
                                 </div>
-                                <button onclick="a18"></button>
+
+                                <div id="dwedewdwewe">이걸누르면 뜹니다.</div>
+                               
                             </div>
 
 
@@ -262,35 +301,7 @@
     <!-- ============================================================== -->
     <!-- End Wrapper -->
     <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- All Jquery -->
-    <!-- ============================================================== -->
-    <script src="../plugins/bower_components/jquery/dist/jquery.min.js"></script>
-    <!-- Bootstrap Core JavaScript -->
-    <script src="bootstrap/dist/js/bootstrap.min.js"></script>
-    <!-- Menu Plugin JavaScript -->
-    <script src="../plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js"></script>
-    <!--slimscroll JavaScript -->
-    <script src="js/jquery.slimscroll.js"></script>
-    <!--Wave Effects -->
-    <script src="js/waves.js"></script>
-    <!--Counter js -->
-    <script src="../plugins/bower_components/waypoints/lib/jquery.waypoints.js"></script>
-    <script src="../plugins/bower_components/counterup/jquery.counterup.min.js"></script>
-    <!-- chartist chart -->
-    <script src="../plugins/bower_components/chartist-js/dist/chartist.min.js"></script>
-    <script src="../plugins/bower_components/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.min.js"></script>
-    <!-- Sparkline chart JavaScript -->
-    <script src="../plugins/bower_components/jquery-sparkline/jquery.sparkline.min.js"></script>
-    <!-- Pignose Calendar JavaScript -->
-    <script src="../plugins/bower_components/pg-calendar/dist/js/pignose.calendar.full.min.js"></script>
-    <!-- Custom Theme JavaScript -->
-    <script src="js/custom.min.js"></script>
-    <script src="js/dashboard1.js"></script>
-    <script src="../plugins/bower_components/toast-master/js/jquery.toast.js"></script>
-    <!-- db 작동관련 기본 시작-->
-    <script src="http://crm.adand.co.kr/crm/js/common.js"></script>
-    <script src="http://crm.adand.co.kr/crm/js/func.js"></script>
+    
     <script>
         domain = "http://crm.adand.co.kr/crm/"
         var user = checkLogin();
@@ -399,6 +410,8 @@
 
         }
 
+
+
         function getlist(id, d, cnt) {
             $("#list .item").remove();
             $("#loading").text("자료를 가져오고 있습니다.").show();
@@ -470,20 +483,21 @@
 
         get();
        
-        $('.calendar').pignoseCalendar({ modal: true, format: 'YYYY-MM-DD' });
-
-        function a18() {
-            $('.calendar').pignoseCalendar({
-                modal: true,
-                apply: function (date, context) {
-                    var $this = $(this);
-                    var $element = context.element;
-                    var $calendar = context.calendar;
-                    console.log(date[0], date[1]);
-                }
-            });
-        }
-      
+        $('#dwedewdwewe').pignoseCalendar({modal:true,buttons:true,
+            format:"YYYY-MM-DD",
+            apply: function(date, context) {
+            var $this = $(this);
+            var $element = context.element;
+            var $calendar = context.calendar;
+            var d = new Date(date[0]);
+            var yyyy = d.getFullYear();
+            var mm = d.getMonth()+1;
+            var dd = d.getDate();
+            var yyyymmdd = yyyy+"-"+mm+"-"+dd;
+                getlist(altid,yyyymmdd);
+                $("#dwedewdwewe").text(yyyymmdd);
+            }
+        });
     </script>
 </body>
 
