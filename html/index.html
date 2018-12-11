@@ -26,6 +26,8 @@
     <link href="css/style.css" rel="stylesheet">
     <!-- color CSS -->
     <link href="css/colors/default.css" id="theme" rel="stylesheet">
+    <!-- pignose calendar CSS-->
+    <link href="../plugins/bower_components/pg-calendar/dist/css/pignose.calendar.css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -220,30 +222,22 @@
                     <div class="col-md-12 col-lg-12 col-sm-12">
                         <div class="white-box">
                             <div class="col-md-3 col-sm-4 col-xs-6 pull-right">
-                                <select class="form-control pull-right row b-none">
-                                    <option>March 2017</option>
-                                    <option>April 2017</option>
-                                    <option>May 2017</option>
-                                    <option>June 2017</option>
-                                    <option>July 2017</option>
-                                </select>
+                                <div class="pull-right"><div class="calendar"></div>
+                                </div>
                             </div>
                             <h3 class="box-title">Recent Data</h3>
                             <div class="table-responsive">
                                 <table class="table">
                                     <thead>
                                             <tr  id="listtr">
-
-                                                </tr>
-                                       
+                                            <!--table head auto display-->
+                                            </tr>
                                     </thead>
                                     <tbody id="list">
-                    <tr class="listtemplate" style="display:none">
-
-                    </tr>
-
-
-                </tbody>
+                                            <tr class="listtemplate" style="display:none">
+                                            <!--table body auto display-->
+                                            </tr>
+                                    </tbody>
                                 </table>
                             </div>
                         </div>
@@ -281,6 +275,8 @@
     <script src="../plugins/bower_components/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.min.js"></script>
     <!-- Sparkline chart JavaScript -->
     <script src="../plugins/bower_components/jquery-sparkline/jquery.sparkline.min.js"></script>
+    <!-- Pignose Calendar JavaScript -->
+    <script src="../plugins/bower_components/pg-calendar/dist/js/pignose.calendar.full.min.js"></script>
     <!-- Custom Theme JavaScript -->
     <script src="js/custom.min.js"></script>
     <script src="js/dashboard1.js"></script>
